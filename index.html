@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Book Shop</title>
+</head>
+
+<body onload="onInit()">
+
+    <div class="main-container">
+        <section class="add-book-container">
+            <span>Add A New Book:</span>
+            <input class="book-name" type="text" placeholder="Enter a book name">
+            <input class="book-price" type="number" placeholder="Enter Price" min="0">
+            <input class="book-img" type="text" placeholder="Insert image url">
+            <button onclick="onAddBook()">Add</button>
+
+        </section>
+
+        <section class="update-container" hidden>
+            <span>Update Book:</span>
+            <input class="update-name" type="text" placeholder="Enter a book name">
+            <input class="update-price" type="number" placeholder="Enter Price" min="0">
+            <input class="update-img" type="text" placeholder="Insert image url">
+            <button onclick="onUpdateBook()">done</button>
+        </section>
+
+        <section class="books-container">
+            <table>
+                <thead>
+                    <th onclick="onSortChange(this.innerText)">Id</th>
+                    <th onclick="onSortChange(this.innerText)">Title</th>
+                    <th onclick="onSortChange(this.innerText)">Price</th>
+                    <th colspan="3">Actions</th>
+                </thead>
+                <tbody class="books-table"></tbody>
+            </table>
+            <button class="prev-btn" onclick="onChangePage(-1)">Prev Page</button>
+            <button class="next-btn" onclick="onChangePage(1)">Next Page</button>
+        </section>
+
+      
+
+        <section class="modal" hidden>
+            <button onclick="onCloseModal()">x</button>
+            <h2>Book Details</h2>
+            <h3></h3>
+            <img src="">
+            <h4></h4>
+            <span>Rate:</span>
+            <button onclick="onChangeRate(-1)">-</button>
+            <span class="rating">
+            </span><button onclick="onChangeRate(1)">+</button>
+        </section>
+    </div>
+    <script src="js/book-storage.js"></script>
+    <script src="js/book-service.js"></script>
+    <script src="js/book-controller.js"></script>
+</body>
+
+</html>
